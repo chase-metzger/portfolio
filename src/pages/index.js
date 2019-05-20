@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Layout from 'components/layout';
 import Box from 'components/box';
 import Gallery from 'components/gallery';
-import IOExample from 'components/io-example';
+// import IOExample from 'components/io-example';
 import ErrorBoundary from '../common/error-boundary';
 import { useFetch } from '../common/hooks';
 import { graphql } from 'gatsby';
@@ -31,8 +31,8 @@ const Index = ({ data }) => {
           title="My Github Projects"
         />
       </ErrorBoundary>
-      <div style={{ height: '50vh' }} />
-      <IOExample />
+      {/* <div style={{ height: '50vh' }} />
+      <IOExample /> */}
     </Layout>
   );
 };
