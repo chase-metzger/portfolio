@@ -8,6 +8,7 @@ export default class ErrorBoundary extends React.Component {
     this.state = {
       hasError: false,
       error: null,
+      info: null,
     };
   }
 
@@ -19,12 +20,20 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    console.log('ErrorBoundary: ', error, ' - ', info);
+    this.setState({
+      hasError: true,
+      error,
+      info,
+    });
   }
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong here... {this.state.error}</h1>;
+      return (
+        <h1>
+          Something went wrong here... {this.state.error} {this.state.info}
+        </h1>
+      );
     }
 
     return this.props.children;
