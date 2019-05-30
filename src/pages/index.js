@@ -23,11 +23,15 @@ const Index = ({ data }) => {
 
       <ErrorBoundary>
         <Gallery
-          items={result.map(r => ({
-            title: r.name,
-            description: r.description,
-            url: r.html_url,
-          }))}
+          items={result.map(r =>
+            !r.fork
+              ? {
+                title: r.name,
+                description: r.description,
+                url: r.html_url,
+              }
+              : null
+          )}
           title="My Github Projects"
         />
       </ErrorBoundary>
