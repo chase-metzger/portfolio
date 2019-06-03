@@ -1,7 +1,7 @@
 {
   "name": "gatsby-universal",
   "license": "MIT",
-  "author": "Fabian Schultz <desk@fabianschultz.com>",
+  "author": "Conrad Chase Metzger (chase.metzger.tutoring@gmail.com)",
   "scripts": {
     "develop": "gatsby develop",
     "serve": "gatsby serve",
@@ -24,7 +24,6 @@
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "bootstrap": "^4.3.1",
-    "circular-json": "^0.5.9",
     "dotenv": "^8.0.0",
     "gatsby": "^2.5.5",
     "gatsby-image": "^2.1.0",
