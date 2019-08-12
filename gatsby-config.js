@@ -14,7 +14,6 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-transformer-json',
     'gatsby-transformer-remark',
-    'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -33,5 +32,16 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'Github',
+        fieldName: 'github',
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_GITHUB_API_TOKEN}`,
+        },
+      }
+    }
   ],
 };
