@@ -5,12 +5,9 @@ import Box from 'components/box';
 import Gallery from 'components/gallery';
 // import IOExample from 'components/io-example';
 import ErrorBoundary from '../common/error-boundary';
-import { useFetch } from '../common/hooks';
 import { graphql } from 'gatsby';
 
 const Index = ({ data }) => {
-  const { result } = useFetch(process.env.GATSBY_MYREPOS_API_URL, []);
-
   return (
     <Layout>
       <Box>
@@ -23,12 +20,12 @@ const Index = ({ data }) => {
 
       <ErrorBoundary>
         <Gallery
-          items={result.map(r =>
-            !r.fork
+          items={data.github.viewer.repositories.nodes.map(r =>
+            !r.isFork
               ? {
                 title: r.name,
                 description: r.description,
-                url: r.html_url,
+                url: r.url,
               }
               : null
           )}
@@ -55,6 +52,18 @@ export const query = graphql`
           html
           frontmatter {
             path
+          }
+        }
+      }
+    }
+    github {
+      viewer {
+        repositories(last: 5) {
+          nodes {
+            name
+            description
+            url
+            isFork
           }
         }
       }
