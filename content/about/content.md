@@ -2,7 +2,7 @@
 path: "/about"
 ---
 
-# TODO: Make this read prettier/trendier
+# Profile
 
 ---
 
